@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>swift 语言学习 - 4. 对象和类 | 张广群的博客 | 个人学习笔记</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="swift,ios">
+    <meta name="description" content="对象和类在 class 关键字后面跟随一个类的名字来创建一个类。给类声明一个属性和普通的声明一个常量和变量的写法是一样的，只不过在类中声明的属性属于类的上下文。同样的，声明一个方法和函数是同样的写法。12345678910111213class Person &amp;#123;    var name = &quot;zhangguangqun&quot;    let greetWord = &quot;hello&quot;//    类">
+<meta name="keywords" content="swift,ios">
+<meta property="og:type" content="article">
+<meta property="og:title" content="swift 语言学习 - 4. 对象和类">
+<meta property="og:url" content="https://www.zhangguangqun.com/20190421/swift04/index.html">
+<meta property="og:site_name" content="张广群的博客">
+<meta property="og:description" content="对象和类在 class 关键字后面跟随一个类的名字来创建一个类。给类声明一个属性和普通的声明一个常量和变量的写法是一样的，只不过在类中声明的属性属于类的上下文。同样的，声明一个方法和函数是同样的写法。12345678910111213class Person &amp;#123;    var name = &quot;zhangguangqun&quot;    let greetWord = &quot;hello&quot;//    类">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-04-21T13:04:41.368Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="swift 语言学习 - 4. 对象和类">
+<meta name="twitter:description" content="对象和类在 class 关键字后面跟随一个类的名字来创建一个类。给类声明一个属性和普通的声明一个常量和变量的写法是一样的，只不过在类中声明的属性属于类的上下文。同样的，声明一个方法和函数是同样的写法。12345678910111213class Person &amp;#123;    var name = &quot;zhangguangqun&quot;    let greetWord = &quot;hello&quot;//    类">
+    
+        <link rel="alternate" type="application/atom+xml" title="张广群的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-8554842426785639",
+        enable_page_level_ads: true
+    });
+    </script>
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">张广群</h5>
+          <a href="mailto:zhangguangqun1994@qq.com" title="zhangguangqun1994@qq.com" class="mail">zhangguangqun1994@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/ZhangGuangqun" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">swift 语言学习 - 4. 对象和类</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">swift 语言学习 - 4. 对象和类</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-21T12:53:23.000Z" itemprop="datePublished" class="page-time">
+  2019-04-21
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/ios/">ios</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/ios/swift/">swift</a></li></ul></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#对象和类"><span class="post-toc-number">1.</span> <span class="post-toc-text">对象和类</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#在-class-关键字后面跟随一个类的名字来创建一个类。给类声明一个属性和普通的声明一个常量和变量的写法是一样的，只不过在类中声明的属性属于类的上下文。同样的，声明一个方法和函数是同样的写法。"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">在 class 关键字后面跟随一个类的名字来创建一个类。给类声明一个属性和普通的声明一个常量和变量的写法是一样的，只不过在类中声明的属性属于类的上下文。同样的，声明一个方法和函数是同样的写法。</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#创建类的实例，及使用实例来访问实例的属性和方法。"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">创建类的实例，及使用实例来访问实例的属性和方法。</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#类的初始化，使用-init-初始化-注意-init-方法前没有-func-关键字，也不会有返回值-，init-方法可以重载。"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">类的初始化，使用 init 初始化 (注意 init 方法前没有 func 关键字，也不会有返回值)，init 方法可以重载。</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#类的继承，子类覆盖父类的方法必须要在方法前写上-override-关键字。"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">类的继承，子类覆盖父类的方法必须要在方法前写上 override 关键字。</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#除了存储简单的属性之外，属性还可以有-getter-和-setter"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">除了存储简单的属性之外，属性还可以有 getter 和 setter.</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#如果你不需要计算属性，但是任然需要在设置新的值后做些操作，使用-willSet-和-didSet-。"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">如果你不需要计算属性，但是任然需要在设置新的值后做些操作，使用 willSet 和 didSet 。</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#对于一个可选值的类的实例，可以在方法、属性、下标前写上-来访问。如果这个实例是-nil，那么在-之后的会被忽略，这个表达式的值是-nil。如果可选值不为-nil，那么可选值会被展开。对于这两种情况，整个表达式的值都是一个可选值。"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">对于一个可选值的类的实例，可以在方法、属性、下标前写上 (?) 来访问。如果这个实例是 nil，那么在 ? 之后的会被忽略，这个表达式的值是 nil。如果可选值不为 nil，那么可选值会被展开。对于这两种情况，整个表达式的值都是一个可选值。</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-swift04" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">swift 语言学习 - 4. 对象和类</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-21 20:53:23" datetime="2019-04-21T12:53:23.000Z" itemprop="datePublished">2019-04-21</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/ios/">ios</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/ios/swift/">swift</a></li></ul></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="对象和类"><a href="#对象和类" class="headerlink" title="对象和类"></a>对象和类</h1><h2 id="在-class-关键字后面跟随一个类的名字来创建一个类。给类声明一个属性和普通的声明一个常量和变量的写法是一样的，只不过在类中声明的属性属于类的上下文。同样的，声明一个方法和函数是同样的写法。"><a href="#在-class-关键字后面跟随一个类的名字来创建一个类。给类声明一个属性和普通的声明一个常量和变量的写法是一样的，只不过在类中声明的属性属于类的上下文。同样的，声明一个方法和函数是同样的写法。" class="headerlink" title="在 class 关键字后面跟随一个类的名字来创建一个类。给类声明一个属性和普通的声明一个常量和变量的写法是一样的，只不过在类中声明的属性属于类的上下文。同样的，声明一个方法和函数是同样的写法。"></a>在 class 关键字后面跟随一个类的名字来创建一个类。给类声明一个属性和普通的声明一个常量和变量的写法是一样的，只不过在类中声明的属性属于类的上下文。同样的，声明一个方法和函数是同样的写法。</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> name = <span class="string">"zhangguangqun"</span></span><br><span class="line">    <span class="keyword">let</span> greetWord = <span class="string">"hello"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//    类中声明的属性的需要初始化，否则编译出错</span></span><br><span class="line"><span class="comment">//    var age: Int  // stored property 'age' without initial value prevents synthesized initializers</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">selfIntroduction</span><span class="params">()</span></span> -&gt; <span class="type">String</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"\(greetWord), my name is \(name)."</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">greet</span><span class="params">(name: String)</span></span> -&gt; <span class="type">String</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"\(greetWord), \(name)"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="创建类的实例，及使用实例来访问实例的属性和方法。"><a href="#创建类的实例，及使用实例来访问实例的属性和方法。" class="headerlink" title="创建类的实例，及使用实例来访问实例的属性和方法。"></a>创建类的实例，及使用实例来访问实例的属性和方法。</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p = <span class="type">Person</span>()</span><br><span class="line"><span class="built_in">print</span>(p.selfIntroduction()) <span class="comment">// hello, my name is zhangguangqun.</span></span><br><span class="line"><span class="built_in">print</span>(p.greet(name: <span class="string">"jack"</span>)) <span class="comment">// hello, jack</span></span><br></pre></td></tr></table></figure>
+<h2 id="类的初始化，使用-init-初始化-注意-init-方法前没有-func-关键字，也不会有返回值-，init-方法可以重载。"><a href="#类的初始化，使用-init-初始化-注意-init-方法前没有-func-关键字，也不会有返回值-，init-方法可以重载。" class="headerlink" title="类的初始化，使用 init 初始化 (注意 init 方法前没有 func 关键字，也不会有返回值)，init 方法可以重载。"></a>类的初始化，使用 init 初始化 (注意 init 方法前没有 func 关键字，也不会有返回值)，init 方法可以重载。</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Fruits</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> color: <span class="type">String</span></span><br><span class="line">    <span class="keyword">var</span> weight: <span class="type">Float</span> = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">init</span>(color: <span class="type">String</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.color = color</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">init</span>(color: <span class="type">String</span>, weight: <span class="type">Float</span>) &#123;</span><br><span class="line"><span class="comment">//        使用 self 表示该实例，来区分实例属性和方法传进来的参数。</span></span><br><span class="line">        <span class="keyword">self</span>.color = color</span><br><span class="line">        <span class="keyword">self</span>.weight = weight</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">description</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"the color of this fruit is \(color), it weight \(weight)g"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> apple = <span class="type">Fruits</span>(color: <span class="string">"红色"</span>)</span><br><span class="line"><span class="keyword">var</span> banana = <span class="type">Fruits</span>(color: <span class="string">"黄色"</span>, weight: <span class="number">80</span>)</span><br><span class="line">apple.description() <span class="comment">// the color of this fruit is 红色, it weight 0.0g</span></span><br><span class="line">banana.description() <span class="comment">// the color of this fruit is 黄色, it weight 80.0g</span></span><br></pre></td></tr></table></figure>
+<h2 id="类的继承，子类覆盖父类的方法必须要在方法前写上-override-关键字。"><a href="#类的继承，子类覆盖父类的方法必须要在方法前写上-override-关键字。" class="headerlink" title="类的继承，子类覆盖父类的方法必须要在方法前写上 override 关键字。"></a>类的继承，子类覆盖父类的方法必须要在方法前写上 override 关键字。</h2><p>对于子类没有自己的 init 初始化方法时，需要使用父类的 init 方法来初始化。对于子类有自己的 init 初始化方法时，它必须调用 super.init 。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Apple</span>: <span class="title">Fruits</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> price: <span class="type">Double</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//    init(color: String, price: Double) &#123;</span></span><br><span class="line"><span class="comment">//        self.color = color</span></span><br><span class="line"><span class="comment">//        self.price = price</span></span><br><span class="line"><span class="comment">//    &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 上面 init 这样的写法会产生如下错误：</span></span><br><span class="line"><span class="comment">//    1. error: 'super.init' isn't called on all paths before returning from initializer</span></span><br><span class="line"><span class="comment">//    2. error: 'self' used in property access 'color' before 'super.init' call self.color = color</span></span><br><span class="line"><span class="comment">//  从这两个错误信息可以看出，在子类的构造器中，父类的成员变量必须通过父类的designated initializer进行初始化。也就是说，我们必须调用super.init（第一个error），而且在调用super.init之前不能使用和访问任何父类的成员变量（第二个error）。</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">init</span>(color: <span class="type">String</span>, price: <span class="type">Double</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.price = price</span><br><span class="line">        <span class="keyword">super</span>.<span class="keyword">init</span>(color: color)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">description</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"这是苹果"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> appleFruit = <span class="type">Apple</span>(color: <span class="string">"红色"</span>, price: <span class="number">80</span>)</span><br><span class="line">appleFruit.description()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 子类有自己的 init 方法，那么它只能调用自己 init 方法来初始化实例，不能调用父类的 init 方法。</span></span><br><span class="line"><span class="comment">// var appleFruit1 = Apple(color: "红色", weight: 80) // error: incorrect argument label in call (have 'color:weight:', expected 'color:price:')</span></span><br></pre></td></tr></table></figure>
+<h2 id="除了存储简单的属性之外，属性还可以有-getter-和-setter"><a href="#除了存储简单的属性之外，属性还可以有-getter-和-setter" class="headerlink" title="除了存储简单的属性之外，属性还可以有 getter 和 setter."></a>除了存储简单的属性之外，属性还可以有 getter 和 setter.</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Banana</span>: <span class="title">Fruits</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> price: <span class="type">Double</span> = <span class="number">10</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> weightKg: <span class="type">Double</span> &#123;</span><br><span class="line">        <span class="keyword">get</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="type">Double</span>(weight / <span class="number">1000</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">set</span> &#123;</span><br><span class="line">            weight = <span class="type">Float</span>(newValue * <span class="number">1000</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> banana2 = <span class="type">Banana</span>(color: <span class="string">"黄色"</span>, weight: <span class="number">1000</span>)</span><br><span class="line"><span class="built_in">print</span>(banana2.weightKg) <span class="comment">// 1.0</span></span><br><span class="line">banana2.weightKg = <span class="number">0.5</span></span><br><span class="line"><span class="built_in">print</span>(banana2.weight) <span class="comment">// 500.0</span></span><br></pre></td></tr></table></figure>
+<h2 id="如果你不需要计算属性，但是任然需要在设置新的值后做些操作，使用-willSet-和-didSet-。"><a href="#如果你不需要计算属性，但是任然需要在设置新的值后做些操作，使用-willSet-和-didSet-。" class="headerlink" title="如果你不需要计算属性，但是任然需要在设置新的值后做些操作，使用 willSet 和 didSet 。"></a>如果你不需要计算属性，但是任然需要在设置新的值后做些操作，使用 willSet 和 didSet 。</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FruitBasket</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> apple: <span class="type">Apple</span> &#123;</span><br><span class="line">        <span class="keyword">willSet</span> &#123;</span><br><span class="line">            <span class="comment">// 确保当 apple 属性被赋予新值时，banana 的 price 比 apple 的 price 低 2</span></span><br><span class="line">            banana.price = newValue.price - <span class="number">2</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> banana: <span class="type">Banana</span> &#123;</span><br><span class="line">        <span class="keyword">willSet</span> &#123;</span><br><span class="line">            <span class="comment">// 确保当 banana 属性被赋予新值时，apple 的 price 比 banana 的 price 高 2</span></span><br><span class="line">            apple.price = newValue.price + <span class="number">2</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">init</span>(price: <span class="type">Double</span>) &#123;</span><br><span class="line">        apple = <span class="type">Apple</span>(color: <span class="string">"红色"</span>, price: price)</span><br><span class="line">        banana = <span class="type">Banana</span>(color: <span class="string">"黄色"</span>)</span><br><span class="line">        banana.price = apple.price - <span class="number">2</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> fruitBasket = <span class="type">FruitBasket</span>(price: <span class="number">10</span>)</span><br><span class="line"><span class="built_in">print</span>(fruitBasket.apple.price) <span class="comment">// 10.0</span></span><br><span class="line"><span class="built_in">print</span>(fruitBasket.banana.price) <span class="comment">// 8.0</span></span><br><span class="line">fruitBasket.apple = <span class="type">Apple</span>(color: <span class="string">"红色"</span>, price: <span class="number">12</span>)</span><br><span class="line"><span class="built_in">print</span>(fruitBasket.apple.price) <span class="comment">// 12.0</span></span><br><span class="line"><span class="built_in">print</span>(fruitBasket.banana.price) <span class="comment">// 10.0</span></span><br></pre></td></tr></table></figure>
+<h2 id="对于一个可选值的类的实例，可以在方法、属性、下标前写上-来访问。如果这个实例是-nil，那么在-之后的会被忽略，这个表达式的值是-nil。如果可选值不为-nil，那么可选值会被展开。对于这两种情况，整个表达式的值都是一个可选值。"><a href="#对于一个可选值的类的实例，可以在方法、属性、下标前写上-来访问。如果这个实例是-nil，那么在-之后的会被忽略，这个表达式的值是-nil。如果可选值不为-nil，那么可选值会被展开。对于这两种情况，整个表达式的值都是一个可选值。" class="headerlink" title="对于一个可选值的类的实例，可以在方法、属性、下标前写上 (?) 来访问。如果这个实例是 nil，那么在 ? 之后的会被忽略，这个表达式的值是 nil。如果可选值不为 nil，那么可选值会被展开。对于这两种情况，整个表达式的值都是一个可选值。"></a>对于一个可选值的类的实例，可以在方法、属性、下标前写上 (?) 来访问。如果这个实例是 nil，那么在 ? 之后的会被忽略，这个表达式的值是 nil。如果可选值不为 nil，那么可选值会被展开。对于这两种情况，整个表达式的值都是一个可选值。</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a: <span class="type">Apple?</span> = <span class="type">Apple</span>(color: <span class="string">"红色"</span>, price: <span class="number">10</span>)</span><br><span class="line"><span class="keyword">var</span> price = a?.price</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>参考：1. <a href="https://docs.swift.org/swift-book/GuidedTour/GuidedTour.html" target="_blank" rel="noopener">苹果官网 swift 指南</a></p>
+</blockquote>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+
+        
+        原文链接：<a href="https://www.zhangguangqun.com/20190421/swift04/" target="_blank" rel="external">https://www.zhangguangqun.com/20190421/swift04/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://www.zhangguangqun.com">
+            <img src="/img/avatar.jpg" alt="张广群">
+            张广群
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ios/">ios</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/swift/">swift</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.zhangguangqun.com/20190421/swift04/&title=《swift 语言学习 - 4. 对象和类》 — 张广群的博客&pic=https://www.zhangguangqun.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.zhangguangqun.com/20190421/swift04/&title=《swift 语言学习 - 4. 对象和类》 — 张广群的博客&source=读书笔记 | 技术笔记" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.zhangguangqun.com/20190421/swift04/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《swift 语言学习 - 4. 对象和类》 — 张广群的博客&url=https://www.zhangguangqun.com/20190421/swift04/&via=https://www.zhangguangqun.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.zhangguangqun.com/20190421/swift04/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/20190418/swift03/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">swift 语言学习 - 3. 函数和闭包</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "9DbQ9oWFKogqBBRoWDnxkjUq-gzGzoHsz",
+            appKey: "d7SmrCAw0RFK7jIgMKrQzGT8",
+            avatar: "mm",
+            placeholder: "要不要说点什么？",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpeg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.jpeg" data-alipay="/img/alipay.jpeg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>张广群 &copy; 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.zhangguangqun.com/20190421/swift04/&title=《swift 语言学习 - 4. 对象和类》 — 张广群的博客&pic=https://www.zhangguangqun.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.zhangguangqun.com/20190421/swift04/&title=《swift 语言学习 - 4. 对象和类》 — 张广群的博客&source=读书笔记 | 技术笔记" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.zhangguangqun.com/20190421/swift04/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《swift 语言学习 - 4. 对象和类》 — 张广群的博客&url=https://www.zhangguangqun.com/20190421/swift04/&via=https://www.zhangguangqun.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.zhangguangqun.com/20190421/swift04/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJElEQVR42u3aQW7EIBAEQP//0841UrJ2z4BXMhSnyCvZFIcODHMc8Th/jb9PknH95k9fmTwwMDBey0g+/+nJNTWZ6PWbC0uDgYGxASOJwiog/zX57s2cMTAwMFqBeB3BvVjHwMDAqAZf/mtvihgYGBjVQ2xv6nlkf+ksjoGB8UJGXnX//t+P3G9gYGC8itG7hkxCOb+YPIcHBgbG2ow84PINWY5MlqYwHwwMjA0YhcJWqwCXF9eqB2YMDIy1GTlgJBxnLdZHMAYGxtKM3nSr277ehUE51jEwMDZgJAFaLbGNL0d+SMbAwNiBkRwsk0DMy2oTpt6bCgYGxgsZzUPj8EG0t5WMNo4YGBjLMXqtFdUpJqFZPfpiYGDswKi2fOUTTbaYvUJb1GaBgYGxGaPXwVFdgvxtRzWPMTAwlmDkgLzQlh+Me8v3z9YQAwNjacZ4KT8P7l7B7uZfBQYGxgaM6tVjPpXeMlWPzRgYGGszZoVm9XogifK8HQ0DA2MfxqxgTfA90s0TDAyMLRm9LVr+hmrDWfN6AAMDYzlGXuIvlMOKX2leZ2JgYCzKOItjVoCORPnNizAwMJZjVGMu+UD1smG8OQMDA2MHRh6yefA9EbhDG0QMDIwlGNXgyxsymtOKox8DAwNjpA0iafbq7WEnBC4GBsbSjF6Jf6R8FpX8MDAwNmCMNHJV4zgP4kfKbRgYGC9kDHVqtBosqpMYKfxhYGC8nPEDGLCTYbTINugAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
