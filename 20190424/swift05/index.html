@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>swift 语言学习 - 5. 枚举和结构体 | 张广群的博客 | 个人学习笔记</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="swift,ios">
+    <meta name="description" content="枚举和结构体使用 enum 来创建一个枚举，像创建类和其他命名的类型一样，枚举可以有方法。枚举的 rawValue 从 0 开始记数，依次加 1，如果某个 case 赋了特殊的值，那么从这个之后的再在一个的基础上进行加 1 记数。 1234567891011121314151617181920212223242526272829enum Rank: Int &amp;#123;    case ace =">
+<meta name="keywords" content="swift,ios">
+<meta property="og:type" content="article">
+<meta property="og:title" content="swift 语言学习 - 5. 枚举和结构体">
+<meta property="og:url" content="https://www.zhangguangqun.com/20190424/swift05/index.html">
+<meta property="og:site_name" content="张广群的博客">
+<meta property="og:description" content="枚举和结构体使用 enum 来创建一个枚举，像创建类和其他命名的类型一样，枚举可以有方法。枚举的 rawValue 从 0 开始记数，依次加 1，如果某个 case 赋了特殊的值，那么从这个之后的再在一个的基础上进行加 1 记数。 1234567891011121314151617181920212223242526272829enum Rank: Int &amp;#123;    case ace =">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-04-24T14:31:12.096Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="swift 语言学习 - 5. 枚举和结构体">
+<meta name="twitter:description" content="枚举和结构体使用 enum 来创建一个枚举，像创建类和其他命名的类型一样，枚举可以有方法。枚举的 rawValue 从 0 开始记数，依次加 1，如果某个 case 赋了特殊的值，那么从这个之后的再在一个的基础上进行加 1 记数。 1234567891011121314151617181920212223242526272829enum Rank: Int &amp;#123;    case ace =">
+    
+        <link rel="alternate" type="application/atom+xml" title="张广群的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-8554842426785639",
+        enable_page_level_ads: true
+    });
+    </script>
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">张广群</h5>
+          <a href="mailto:zhangguangqun1994@qq.com" title="zhangguangqun1994@qq.com" class="mail">zhangguangqun1994@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/ZhangGuangqun" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">swift 语言学习 - 5. 枚举和结构体</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">swift 语言学习 - 5. 枚举和结构体</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-24T14:23:10.000Z" itemprop="datePublished" class="page-time">
+  2019-04-24
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/ios/">ios</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/ios/swift/">swift</a></li></ul></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#枚举和结构体"><span class="post-toc-number">1.</span> <span class="post-toc-text">枚举和结构体</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用-enum-来创建一个枚举，像创建类和其他命名的类型一样，枚举可以有方法。"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">使用 enum 来创建一个枚举，像创建类和其他命名的类型一样，枚举可以有方法。</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#枚举的类型可以是-String-和浮点型"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">枚举的类型可以是 String 和浮点型</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#可以使用-rawValue-来初始化一个枚举"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">可以使用 rawValue 来初始化一个枚举</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#枚举的-case-值就是实际的值，而不仅仅写它们的-rawValue-一种方式，如果没有很有意义的值，可以不必写。"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">枚举的 case 值就是实际的值，而不仅仅写它们的 rawValue 一种方式，如果没有很有意义的值，可以不必写。</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#上面枚举例子在它定义时就已经确定了，并且相同的-case-的原始值都相同。还有一种情况是，枚举关联的原始值可以在它实例化时才确定，并且原始值可以不同"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">上面枚举例子在它定义时就已经确定了，并且相同的 case 的原始值都相同。还有一种情况是，枚举关联的原始值可以在它实例化时才确定，并且原始值可以不同</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用-struct-关键字来创建一个结构体，结构体支持很多与类相同的行为，包括方法和初始化方法。其中最重要的不同是结构体是一直被拷贝在传值的时候，而类是被当作引用来传递的。"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">使用 struct 关键字来创建一个结构体，结构体支持很多与类相同的行为，包括方法和初始化方法。其中最重要的不同是结构体是一直被拷贝在传值的时候，而类是被当作引用来传递的。</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-swift05" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">swift 语言学习 - 5. 枚举和结构体</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-24 22:23:10" datetime="2019-04-24T14:23:10.000Z" itemprop="datePublished">2019-04-24</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/ios/">ios</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/ios/swift/">swift</a></li></ul></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="枚举和结构体"><a href="#枚举和结构体" class="headerlink" title="枚举和结构体"></a>枚举和结构体</h1><h2 id="使用-enum-来创建一个枚举，像创建类和其他命名的类型一样，枚举可以有方法。"><a href="#使用-enum-来创建一个枚举，像创建类和其他命名的类型一样，枚举可以有方法。" class="headerlink" title="使用 enum 来创建一个枚举，像创建类和其他命名的类型一样，枚举可以有方法。"></a>使用 enum 来创建一个枚举，像创建类和其他命名的类型一样，枚举可以有方法。</h2><p>枚举的 rawValue 从 0 开始记数，依次加 1，如果某个 case 赋了特殊的值，那么从这个之后的再在一个的基础上进行加 1 记数。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">Rank</span>: <span class="title">Int</span> </span>&#123;</span><br><span class="line">    <span class="keyword">case</span> ace = <span class="number">1</span></span><br><span class="line">    <span class="keyword">case</span> two, three, four, five, six, seven, eight, nine, ten</span><br><span class="line">    <span class="keyword">case</span> jack, queen, king</span><br><span class="line">    <span class="keyword">case</span> test = <span class="number">20</span></span><br><span class="line">    <span class="keyword">case</span> test2</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">simpleDescription</span><span class="params">()</span></span> -&gt; <span class="type">String</span> &#123;</span><br><span class="line">        <span class="keyword">switch</span> <span class="keyword">self</span> &#123;</span><br><span class="line">        <span class="keyword">case</span> .ace:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"ace"</span></span><br><span class="line">        <span class="keyword">case</span> .jack:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"jack"</span></span><br><span class="line">        <span class="keyword">case</span> .queen:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"queen"</span></span><br><span class="line">        <span class="keyword">case</span> .king:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"king"</span></span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="type">String</span>(<span class="keyword">self</span>.rawValue)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> ace = <span class="type">Rank</span>.ace</span><br><span class="line"><span class="keyword">let</span> aceRawValue = ace.rawValue</span><br><span class="line"><span class="built_in">print</span>(aceRawValue) <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">print</span>(<span class="type">Rank</span>.jack.rawValue) <span class="comment">// 11</span></span><br><span class="line"><span class="built_in">print</span>(<span class="type">Rank</span>.test.rawValue)  <span class="comment">// 20</span></span><br><span class="line"><span class="built_in">print</span>(<span class="type">Rank</span>.test2.rawValue)  <span class="comment">// 21</span></span><br></pre></td></tr></table></figure>
+<h2 id="枚举的类型可以是-String-和浮点型"><a href="#枚举的类型可以是-String-和浮点型" class="headerlink" title="枚举的类型可以是 String 和浮点型"></a>枚举的类型可以是 String 和浮点型</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">Sports</span>: <span class="title">String</span> </span>&#123;</span><br><span class="line">    <span class="keyword">case</span> football, basketball</span><br><span class="line">    <span class="keyword">case</span> running = <span class="string">"run"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="type">Sports</span>.football.rawValue) <span class="comment">// football</span></span><br><span class="line"><span class="built_in">print</span>(<span class="type">Sports</span>.running.rawValue) <span class="comment">// run</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">Eyesight</span>: <span class="title">Float</span> </span>&#123;</span><br><span class="line">    <span class="keyword">case</span> a</span><br><span class="line">    <span class="keyword">case</span> b</span><br><span class="line">    <span class="keyword">case</span> <span class="built_in">c</span> = <span class="number">5.2</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="type">Eyesight</span>.a.rawValue) <span class="comment">// 0.0</span></span><br><span class="line"><span class="built_in">print</span>(<span class="type">Eyesight</span>.<span class="built_in">c</span>.rawValue) <span class="comment">// 5.2</span></span><br></pre></td></tr></table></figure>
+<h2 id="可以使用-rawValue-来初始化一个枚举"><a href="#可以使用-rawValue-来初始化一个枚举" class="headerlink" title="可以使用 rawValue 来初始化一个枚举"></a>可以使用 rawValue 来初始化一个枚举</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> convertedRank = <span class="type">Rank</span>(rawValue: <span class="number">3</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> threeDescription = convertedRank.simpleDescription()</span><br><span class="line">    <span class="built_in">print</span>(threeDescription)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="枚举的-case-值就是实际的值，而不仅仅写它们的-rawValue-一种方式，如果没有很有意义的值，可以不必写。"><a href="#枚举的-case-值就是实际的值，而不仅仅写它们的-rawValue-一种方式，如果没有很有意义的值，可以不必写。" class="headerlink" title="枚举的 case 值就是实际的值，而不仅仅写它们的 rawValue 一种方式，如果没有很有意义的值，可以不必写。"></a>枚举的 case 值就是实际的值，而不仅仅写它们的 rawValue 一种方式，如果没有很有意义的值，可以不必写。</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">Suit</span> </span>&#123;</span><br><span class="line">    <span class="keyword">case</span> spades, hearts, diamonds, clubs</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">simpleDescription</span><span class="params">()</span></span> -&gt; <span class="type">String</span> &#123;</span><br><span class="line">        <span class="keyword">switch</span> <span class="keyword">self</span> &#123;</span><br><span class="line">        <span class="keyword">case</span> .spades:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"spades"</span></span><br><span class="line">        <span class="keyword">case</span> .hearts:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"hearts"</span></span><br><span class="line">        <span class="keyword">case</span> .diamonds:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"diamonds"</span></span><br><span class="line">        <span class="keyword">case</span> .clubs:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"clubs"</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">color</span><span class="params">()</span></span> -&gt; <span class="type">String</span> &#123;</span><br><span class="line">        <span class="keyword">switch</span> <span class="keyword">self</span> &#123;</span><br><span class="line">        <span class="keyword">case</span> .spades, .clubs:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"black"</span></span><br><span class="line">        <span class="keyword">case</span> .hearts, .diamonds:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"diamonds"</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> hearts = <span class="type">Suit</span>.hearts</span><br><span class="line"><span class="keyword">let</span> heartsDescription = hearts.simpleDescription()</span><br><span class="line"><span class="built_in">print</span>(<span class="type">Suit</span>.spades.color())  <span class="comment">// black</span></span><br></pre></td></tr></table></figure>
+<h2 id="上面枚举例子在它定义时就已经确定了，并且相同的-case-的原始值都相同。还有一种情况是，枚举关联的原始值可以在它实例化时才确定，并且原始值可以不同"><a href="#上面枚举例子在它定义时就已经确定了，并且相同的-case-的原始值都相同。还有一种情况是，枚举关联的原始值可以在它实例化时才确定，并且原始值可以不同" class="headerlink" title="上面枚举例子在它定义时就已经确定了，并且相同的 case 的原始值都相同。还有一种情况是，枚举关联的原始值可以在它实例化时才确定，并且原始值可以不同"></a>上面枚举例子在它定义时就已经确定了，并且相同的 case 的原始值都相同。还有一种情况是，枚举关联的原始值可以在它实例化时才确定，并且原始值可以不同</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">ServerResponse</span> </span>&#123;</span><br><span class="line">    <span class="keyword">case</span> result(<span class="type">String</span>, <span class="type">String</span>)</span><br><span class="line">    <span class="keyword">case</span> failure(<span class="type">String</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> success = <span class="type">ServerResponse</span>.result(<span class="string">"6:00 am"</span>, <span class="string">"8:09 pm"</span>)</span><br><span class="line"><span class="keyword">let</span> failure = <span class="type">ServerResponse</span>.failure(<span class="string">"Out of cheese."</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">switch</span> success &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="keyword">let</span>.result(sunrise, sunset):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"Sunrise is at \(sunrise) and sunset is at \(sunset)."</span>) <span class="comment">// Sunrise is at 6:00 am and sunset is at 8:09 pm.</span></span><br><span class="line">    <span class="keyword">case</span> <span class="keyword">let</span> .failure(message):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"Failure...  \(message)"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="使用-struct-关键字来创建一个结构体，结构体支持很多与类相同的行为，包括方法和初始化方法。其中最重要的不同是结构体是一直被拷贝在传值的时候，而类是被当作引用来传递的。"><a href="#使用-struct-关键字来创建一个结构体，结构体支持很多与类相同的行为，包括方法和初始化方法。其中最重要的不同是结构体是一直被拷贝在传值的时候，而类是被当作引用来传递的。" class="headerlink" title="使用 struct 关键字来创建一个结构体，结构体支持很多与类相同的行为，包括方法和初始化方法。其中最重要的不同是结构体是一直被拷贝在传值的时候，而类是被当作引用来传递的。"></a>使用 struct 关键字来创建一个结构体，结构体支持很多与类相同的行为，包括方法和初始化方法。其中最重要的不同是结构体是一直被拷贝在传值的时候，而类是被当作引用来传递的。</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Card</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> rank: <span class="type">Rank</span></span><br><span class="line">    <span class="keyword">var</span> suit: <span class="type">Suit</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">simpleDescription</span><span class="params">()</span></span> -&gt; <span class="type">String</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"The \(rank.simpleDescription()) of \(suit.simpleDescription())"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> threeOfSpades = <span class="type">Card</span>(rank: .three, suit: .spades)</span><br><span class="line"><span class="keyword">let</span> threeOfSpadesDescription = threeOfSpades.simpleDescription()</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>参考：1. <a href="https://docs.swift.org/swift-book/GuidedTour/GuidedTour.html" target="_blank" rel="noopener">苹果官网 swift 指南</a></p>
+</blockquote>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+
+        
+        原文链接：<a href="https://www.zhangguangqun.com/20190424/swift05/" target="_blank" rel="external">https://www.zhangguangqun.com/20190424/swift05/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://www.zhangguangqun.com">
+            <img src="/img/avatar.jpg" alt="张广群">
+            张广群
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ios/">ios</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/swift/">swift</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.zhangguangqun.com/20190424/swift05/&title=《swift 语言学习 - 5. 枚举和结构体》 — 张广群的博客&pic=https://www.zhangguangqun.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.zhangguangqun.com/20190424/swift05/&title=《swift 语言学习 - 5. 枚举和结构体》 — 张广群的博客&source=读书笔记 | 技术笔记" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.zhangguangqun.com/20190424/swift05/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《swift 语言学习 - 5. 枚举和结构体》 — 张广群的博客&url=https://www.zhangguangqun.com/20190424/swift05/&via=https://www.zhangguangqun.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.zhangguangqun.com/20190424/swift05/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/20190421/swift04/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">swift 语言学习 - 4. 对象和类</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "9DbQ9oWFKogqBBRoWDnxkjUq-gzGzoHsz",
+            appKey: "d7SmrCAw0RFK7jIgMKrQzGT8",
+            avatar: "mm",
+            placeholder: "要不要说点什么？",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpeg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.jpeg" data-alipay="/img/alipay.jpeg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>张广群 &copy; 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.zhangguangqun.com/20190424/swift05/&title=《swift 语言学习 - 5. 枚举和结构体》 — 张广群的博客&pic=https://www.zhangguangqun.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.zhangguangqun.com/20190424/swift05/&title=《swift 语言学习 - 5. 枚举和结构体》 — 张广群的博客&source=读书笔记 | 技术笔记" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.zhangguangqun.com/20190424/swift05/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《swift 语言学习 - 5. 枚举和结构体》 — 张广群的博客&url=https://www.zhangguangqun.com/20190424/swift05/&via=https://www.zhangguangqun.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.zhangguangqun.com/20190424/swift05/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKUlEQVR42u3a22rDQAxF0fz/T6evhTb2PtKkJdKep2CDPcsBMbo8Hng9v62fV8i6fvKrtxxeMmTI+FgGef2rK9dUstHrJwefRoYMGQsYJBSmAH6XvPdmzzJkyJBxufX0aNgJ6zJkyJBRC3wkTa1tUYYMGTLSJJbgeWr6b7m4DBkyPpDBq+5///st/Q0ZMmR8FKOWiJKgzBuTz/aSIUPGbAYPcKQ9mSLJpwn2I0OGjAWMUw3LNOkloRkdFmXIkDGUQVqMpxLOdOQiOG7KkCFjNKNTiO+nrJ0w/ctdGTJkjGaQINsJxLUhMF6ekyFDxgbGOzZHymrH/gEZMmQsYJADXzqQwZ9ZK97d7FCGDBnjGHy0olOZJ0EzbYjKkCFjAyMd+eIb5YW8WssTpa8yZMgYwUhfxo+M6SeoHTplyJCxjUGCYC0/rhXvyHNuTrgyZMgYweCF+3QgI01f0wKfDBkydjJ4IYynl7UradosQ4aM2YxTZX3eNuCDF3wcRIYMGTsZtXEusmrPR1dkyJCxgNEpkKVxrzYWdpPiypAhYwGDH9Hiclg4TlFsZ8qQIWMo4xku3sLkIxS8oIb+BxkyZIxjpGEufUGnuFY7mMqQIWMqgxfI0rTzbMBtHRBlyJAxgpEGvhr7bHp80xiQIUPGYgZPNXnbIA3rBwKuDBkyRjNqJbBO+Qy1RWXIkLGA0RnkSgdPayMaMmTI2MxoTWqUBizSTfTDvQwZMj6W8QVtA5NhUp4WFgAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
