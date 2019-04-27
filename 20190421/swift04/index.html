@@ -14,7 +14,7 @@
     
     
     
-    <title>swift 语言学习 - 4. 对象和类 | 张广群的博客 | 个人学习笔记</title>
+    <title>swift 语言概要 - 4. 对象和类 | 张广群的博客 | 个人学习笔记</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
@@ -24,14 +24,14 @@
     <meta name="description" content="对象和类在 class 关键字后面跟随一个类的名字来创建一个类。给类声明一个属性和普通的声明一个常量和变量的写法是一样的，只不过在类中声明的属性属于类的上下文。同样的，声明一个方法和函数是同样的写法。12345678910111213class Person &amp;#123;    var name = &quot;zhangguangqun&quot;    let greetWord = &quot;hello&quot;//    类">
 <meta name="keywords" content="swift,ios">
 <meta property="og:type" content="article">
-<meta property="og:title" content="swift 语言学习 - 4. 对象和类">
+<meta property="og:title" content="swift 语言概要 - 4. 对象和类">
 <meta property="og:url" content="https://www.zhangguangqun.com/20190421/swift04/index.html">
 <meta property="og:site_name" content="张广群的博客">
 <meta property="og:description" content="对象和类在 class 关键字后面跟随一个类的名字来创建一个类。给类声明一个属性和普通的声明一个常量和变量的写法是一样的，只不过在类中声明的属性属于类的上下文。同样的，声明一个方法和函数是同样的写法。12345678910111213class Person &amp;#123;    var name = &quot;zhangguangqun&quot;    let greetWord = &quot;hello&quot;//    类">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-21T13:04:41.368Z">
+<meta property="og:updated_time" content="2019-04-27T01:37:30.593Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="swift 语言学习 - 4. 对象和类">
+<meta name="twitter:title" content="swift 语言概要 - 4. 对象和类">
 <meta name="twitter:description" content="对象和类在 class 关键字后面跟随一个类的名字来创建一个类。给类声明一个属性和普通的声明一个常量和变量的写法是一样的，只不过在类中声明的属性属于类的上下文。同样的，声明一个方法和函数是同样的写法。12345678910111213class Person &amp;#123;    var name = &quot;zhangguangqun&quot;    let greetWord = &quot;hello&quot;//    类">
     
         <link rel="alternate" type="application/atom+xml" title="张广群的博客" href="/atom.xml">
@@ -120,7 +120,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">swift 语言学习 - 4. 对象和类</div>
+        <div class="flex-col header-title ellipsis">swift 语言概要 - 4. 对象和类</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -142,7 +142,7 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">swift 语言学习 - 4. 对象和类</h1>
+        <h1 class="title">swift 语言概要 - 4. 对象和类</h1>
         <h5 class="subtitle">
             
                 <time datetime="2019-04-21T12:53:23.000Z" itemprop="datePublished" class="page-time">
@@ -175,7 +175,7 @@
 <article id="post-swift04" class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">swift 语言学习 - 4. 对象和类</h1>
+        <h1 class="post-card-title">swift 语言概要 - 4. 对象和类</h1>
         <div class="post-meta">
             <time class="post-time" title="2019-04-21 20:53:23" datetime="2019-04-21T12:53:23.000Z" itemprop="datePublished">2019-04-21</time>
 
@@ -200,6 +200,7 @@
 <h2 id="除了存储简单的属性之外，属性还可以有-getter-和-setter"><a href="#除了存储简单的属性之外，属性还可以有-getter-和-setter" class="headerlink" title="除了存储简单的属性之外，属性还可以有 getter 和 setter."></a>除了存储简单的属性之外，属性还可以有 getter 和 setter.</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Banana</span>: <span class="title">Fruits</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> price: <span class="type">Double</span> = <span class="number">10</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> weightKg: <span class="type">Double</span> &#123;</span><br><span class="line">        <span class="keyword">get</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="type">Double</span>(weight / <span class="number">1000</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">set</span> &#123;</span><br><span class="line">            weight = <span class="type">Float</span>(newValue * <span class="number">1000</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> banana2 = <span class="type">Banana</span>(color: <span class="string">"黄色"</span>, weight: <span class="number">1000</span>)</span><br><span class="line"><span class="built_in">print</span>(banana2.weightKg) <span class="comment">// 1.0</span></span><br><span class="line">banana2.weightKg = <span class="number">0.5</span></span><br><span class="line"><span class="built_in">print</span>(banana2.weight) <span class="comment">// 500.0</span></span><br></pre></td></tr></table></figure>
 <h2 id="如果你不需要计算属性，但是任然需要在设置新的值后做些操作，使用-willSet-和-didSet-。"><a href="#如果你不需要计算属性，但是任然需要在设置新的值后做些操作，使用-willSet-和-didSet-。" class="headerlink" title="如果你不需要计算属性，但是任然需要在设置新的值后做些操作，使用 willSet 和 didSet 。"></a>如果你不需要计算属性，但是任然需要在设置新的值后做些操作，使用 willSet 和 didSet 。</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FruitBasket</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> apple: <span class="type">Apple</span> &#123;</span><br><span class="line">        <span class="keyword">willSet</span> &#123;</span><br><span class="line">            <span class="comment">// 确保当 apple 属性被赋予新值时，banana 的 price 比 apple 的 price 低 2</span></span><br><span class="line">            banana.price = newValue.price - <span class="number">2</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> banana: <span class="type">Banana</span> &#123;</span><br><span class="line">        <span class="keyword">willSet</span> &#123;</span><br><span class="line">            <span class="comment">// 确保当 banana 属性被赋予新值时，apple 的 price 比 banana 的 price 高 2</span></span><br><span class="line">            apple.price = newValue.price + <span class="number">2</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">init</span>(price: <span class="type">Double</span>) &#123;</span><br><span class="line">        apple = <span class="type">Apple</span>(color: <span class="string">"红色"</span>, price: price)</span><br><span class="line">        banana = <span class="type">Banana</span>(color: <span class="string">"黄色"</span>)</span><br><span class="line">        banana.price = apple.price - <span class="number">2</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> fruitBasket = <span class="type">FruitBasket</span>(price: <span class="number">10</span>)</span><br><span class="line"><span class="built_in">print</span>(fruitBasket.apple.price) <span class="comment">// 10.0</span></span><br><span class="line"><span class="built_in">print</span>(fruitBasket.banana.price) <span class="comment">// 8.0</span></span><br><span class="line">fruitBasket.apple = <span class="type">Apple</span>(color: <span class="string">"红色"</span>, price: <span class="number">12</span>)</span><br><span class="line"><span class="built_in">print</span>(fruitBasket.apple.price) <span class="comment">// 12.0</span></span><br><span class="line"><span class="built_in">print</span>(fruitBasket.banana.price) <span class="comment">// 10.0</span></span><br></pre></td></tr></table></figure>
 <h2 id="对于一个可选值的类的实例，可以在方法、属性、下标前写上-来访问。如果这个实例是-nil，那么在-之后的会被忽略，这个表达式的值是-nil。如果可选值不为-nil，那么可选值会被展开。对于这两种情况，整个表达式的值都是一个可选值。"><a href="#对于一个可选值的类的实例，可以在方法、属性、下标前写上-来访问。如果这个实例是-nil，那么在-之后的会被忽略，这个表达式的值是-nil。如果可选值不为-nil，那么可选值会被展开。对于这两种情况，整个表达式的值都是一个可选值。" class="headerlink" title="对于一个可选值的类的实例，可以在方法、属性、下标前写上 (?) 来访问。如果这个实例是 nil，那么在 ? 之后的会被忽略，这个表达式的值是 nil。如果可选值不为 nil，那么可选值会被展开。对于这两种情况，整个表达式的值都是一个可选值。"></a>对于一个可选值的类的实例，可以在方法、属性、下标前写上 (?) 来访问。如果这个实例是 nil，那么在 ? 之后的会被忽略，这个表达式的值是 nil。如果可选值不为 nil，那么可选值会被展开。对于这两种情况，整个表达式的值都是一个可选值。</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a: <span class="type">Apple?</span> = <span class="type">Apple</span>(color: <span class="string">"红色"</span>, price: <span class="number">10</span>)</span><br><span class="line"><span class="keyword">var</span> price = a?.price</span><br></pre></td></tr></table></figure>
+<p><a href="https://github.com/ZhangGuangqun/playground/tree/master/swift/swift-tutorial.playground" target="_blank" rel="noopener">查看源码</a></p>
 <blockquote>
 <p>参考：1. <a href="https://docs.swift.org/swift-book/GuidedTour/GuidedTour.html" target="_blank" rel="noopener">苹果官网 swift 指南</a></p>
 </blockquote>
@@ -243,7 +244,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.zhangguangqun.com/20190421/swift04/&title=《swift 语言学习 - 4. 对象和类》 — 张广群的博客&pic=https://www.zhangguangqun.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.zhangguangqun.com/20190421/swift04/&title=《swift 语言概要 - 4. 对象和类》 — 张广群的博客&pic=https://www.zhangguangqun.com/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -253,7 +254,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.zhangguangqun.com/20190421/swift04/&title=《swift 语言学习 - 4. 对象和类》 — 张广群的博客&source=读书笔记 | 技术笔记" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.zhangguangqun.com/20190421/swift04/&title=《swift 语言概要 - 4. 对象和类》 — 张广群的博客&source=读书笔记 | 技术笔记" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -263,7 +264,7 @@
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《swift 语言学习 - 4. 对象和类》 — 张广群的博客&url=https://www.zhangguangqun.com/20190421/swift04/&via=https://www.zhangguangqun.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《swift 语言概要 - 4. 对象和类》 — 张广群的博客&url=https://www.zhangguangqun.com/20190421/swift04/&via=https://www.zhangguangqun.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
@@ -293,7 +294,7 @@
     <div class="waves-block waves-effect prev">
       <a href="/20190424/swift05/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">swift 语言学习 - 5. 枚举和结构体</h4>
+        <h4 class="title">swift 语言概要 - 5. 枚举和结构体</h4>
       </a>
     </div>
   
@@ -302,7 +303,7 @@
     <div class="waves-block waves-effect next">
       <a href="/20190418/swift03/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">swift 语言学习 - 3. 函数和闭包</h4>
+        <h4 class="title">swift 语言概要 - 3. 函数和闭包</h4>
       </a>
     </div>
   
@@ -425,7 +426,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.zhangguangqun.com/20190421/swift04/&title=《swift 语言学习 - 4. 对象和类》 — 张广群的博客&pic=https://www.zhangguangqun.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.zhangguangqun.com/20190421/swift04/&title=《swift 语言概要 - 4. 对象和类》 — 张广群的博客&pic=https://www.zhangguangqun.com/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -435,7 +436,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.zhangguangqun.com/20190421/swift04/&title=《swift 语言学习 - 4. 对象和类》 — 张广群的博客&source=读书笔记 | 技术笔记" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.zhangguangqun.com/20190421/swift04/&title=《swift 语言概要 - 4. 对象和类》 — 张广群的博客&source=读书笔记 | 技术笔记" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -445,7 +446,7 @@
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《swift 语言学习 - 4. 对象和类》 — 张广群的博客&url=https://www.zhangguangqun.com/20190421/swift04/&via=https://www.zhangguangqun.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《swift 语言概要 - 4. 对象和类》 — 张广群的博客&url=https://www.zhangguangqun.com/20190421/swift04/&via=https://www.zhangguangqun.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
