@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>swift 语言概要 - 7. 错误处理 | 张广群的博客 | 个人学习笔记</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="swift,ios">
+    <meta name="description" content="错误处理可以使用任何类型去采用 Error 协议来定义错误。12345enum PrinterError: Error &amp;#123;    case outOfPaper    case noToner    case onFire&amp;#125; 用 throw 关键字抛出一个错误，用 throws 来标记一个方法可以抛出一个错误。如果在一个方法中抛出了错误，这个方法就会立刻返回，调用这个方法的地方">
+<meta name="keywords" content="swift,ios">
+<meta property="og:type" content="article">
+<meta property="og:title" content="swift 语言概要 - 7. 错误处理">
+<meta property="og:url" content="https://www.zhangguangqun.com/20190429/swift07/index.html">
+<meta property="og:site_name" content="张广群的博客">
+<meta property="og:description" content="错误处理可以使用任何类型去采用 Error 协议来定义错误。12345enum PrinterError: Error &amp;#123;    case outOfPaper    case noToner    case onFire&amp;#125; 用 throw 关键字抛出一个错误，用 throws 来标记一个方法可以抛出一个错误。如果在一个方法中抛出了错误，这个方法就会立刻返回，调用这个方法的地方">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-04-29T13:46:20.990Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="swift 语言概要 - 7. 错误处理">
+<meta name="twitter:description" content="错误处理可以使用任何类型去采用 Error 协议来定义错误。12345enum PrinterError: Error &amp;#123;    case outOfPaper    case noToner    case onFire&amp;#125; 用 throw 关键字抛出一个错误，用 throws 来标记一个方法可以抛出一个错误。如果在一个方法中抛出了错误，这个方法就会立刻返回，调用这个方法的地方">
+    
+        <link rel="alternate" type="application/atom+xml" title="张广群的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-8554842426785639",
+        enable_page_level_ads: true
+    });
+    </script>
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">张广群</h5>
+          <a href="mailto:zhangguangqun1994@qq.com" title="zhangguangqun1994@qq.com" class="mail">zhangguangqun1994@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/ZhangGuangqun" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">swift 语言概要 - 7. 错误处理</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">swift 语言概要 - 7. 错误处理</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-29T13:23:42.000Z" itemprop="datePublished" class="page-time">
+  2019-04-29
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/ios/">ios</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/ios/swift/">swift</a></li></ul></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#错误处理"><span class="post-toc-number">1.</span> <span class="post-toc-text">错误处理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#可以使用任何类型去采用-Error-协议来定义错误。"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">可以使用任何类型去采用 Error 协议来定义错误。</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#用-throw-关键字抛出一个错误，用-throws-来标记一个方法可以抛出一个错误。如果在一个方法中抛出了错误，这个方法就会立刻返回，调用这个方法的地方需要处理这个错误。"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">用 throw 关键字抛出一个错误，用 throws 来标记一个方法可以抛出一个错误。如果在一个方法中抛出了错误，这个方法就会立刻返回，调用这个方法的地方需要处理这个错误。</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#有几种方式来处理错误。一种方式是使用-do-catch-在-do-的块之内，在可能抛出错误的方法前写上-try。除非给错误自定义名字，否则错误会自动命名为-error-。"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">有几种方式来处理错误。一种方式是使用 do-catch, 在 do 的块之内，在可能抛出错误的方法前写上 try。除非给错误自定义名字，否则错误会自动命名为 error 。</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#可以使用多个-catch-块来处理特殊的错误。在-catch-写的模式和在-switch-case-的-case-是一样的。"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">可以使用多个 catch 块来处理特殊的错误。在 catch 写的模式和在 switch-case 的 case 是一样的。</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#另外一个处理错误的方式是用-try-来将结果转换为可选的。如果一个函数抛了一个错误，这个特定的错误被丢弃了，函数的结果是-nil，否者，结果是这个方法返回的可选值类型的值。"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">另外一个处理错误的方式是用 try? 来将结果转换为可选的。如果一个函数抛了一个错误，这个特定的错误被丢弃了，函数的结果是 nil，否者，结果是这个方法返回的可选值类型的值。</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#在-defer-关键字后写一个代码块，该代码块在函数返回之前且在函数中的所有其他代码之后执行。-无论函数是否抛出错误，都会执行代码。"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">在 defer 关键字后写一个代码块，该代码块在函数返回之前且在函数中的所有其他代码之后执行。 无论函数是否抛出错误，都会执行代码。</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-swift07" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">swift 语言概要 - 7. 错误处理</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-29 21:23:42" datetime="2019-04-29T13:23:42.000Z" itemprop="datePublished">2019-04-29</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/ios/">ios</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/ios/swift/">swift</a></li></ul></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h1><h2 id="可以使用任何类型去采用-Error-协议来定义错误。"><a href="#可以使用任何类型去采用-Error-协议来定义错误。" class="headerlink" title="可以使用任何类型去采用 Error 协议来定义错误。"></a>可以使用任何类型去采用 Error 协议来定义错误。</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">PrinterError</span>: <span class="title">Error</span> </span>&#123;</span><br><span class="line">    <span class="keyword">case</span> outOfPaper</span><br><span class="line">    <span class="keyword">case</span> noToner</span><br><span class="line">    <span class="keyword">case</span> onFire</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="用-throw-关键字抛出一个错误，用-throws-来标记一个方法可以抛出一个错误。如果在一个方法中抛出了错误，这个方法就会立刻返回，调用这个方法的地方需要处理这个错误。"><a href="#用-throw-关键字抛出一个错误，用-throws-来标记一个方法可以抛出一个错误。如果在一个方法中抛出了错误，这个方法就会立刻返回，调用这个方法的地方需要处理这个错误。" class="headerlink" title="用 throw 关键字抛出一个错误，用 throws 来标记一个方法可以抛出一个错误。如果在一个方法中抛出了错误，这个方法就会立刻返回，调用这个方法的地方需要处理这个错误。"></a>用 throw 关键字抛出一个错误，用 throws 来标记一个方法可以抛出一个错误。如果在一个方法中抛出了错误，这个方法就会立刻返回，调用这个方法的地方需要处理这个错误。</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">send</span><span class="params">(job: Int, toPrinter printerName: String)</span></span> <span class="keyword">throws</span> -&gt; <span class="type">String</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> printerName == <span class="string">"Never Has Toner"</span> &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="type">PrinterError</span>.noToner</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"Job sent"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="有几种方式来处理错误。一种方式是使用-do-catch-在-do-的块之内，在可能抛出错误的方法前写上-try。除非给错误自定义名字，否则错误会自动命名为-error-。"><a href="#有几种方式来处理错误。一种方式是使用-do-catch-在-do-的块之内，在可能抛出错误的方法前写上-try。除非给错误自定义名字，否则错误会自动命名为-error-。" class="headerlink" title="有几种方式来处理错误。一种方式是使用 do-catch, 在 do 的块之内，在可能抛出错误的方法前写上 try。除非给错误自定义名字，否则错误会自动命名为 error 。"></a>有几种方式来处理错误。一种方式是使用 do-catch, 在 do 的块之内，在可能抛出错误的方法前写上 try。除非给错误自定义名字，否则错误会自动命名为 error 。</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> printerResponse = <span class="keyword">try</span> send(job: <span class="number">1040</span>, toPrinter: <span class="string">"Never Has Toner"</span>)</span><br><span class="line">    <span class="built_in">print</span>(printerResponse)</span><br><span class="line">&#125; <span class="keyword">catch</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(error) <span class="comment">// noToner</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="可以使用多个-catch-块来处理特殊的错误。在-catch-写的模式和在-switch-case-的-case-是一样的。"><a href="#可以使用多个-catch-块来处理特殊的错误。在-catch-写的模式和在-switch-case-的-case-是一样的。" class="headerlink" title="可以使用多个 catch 块来处理特殊的错误。在 catch 写的模式和在 switch-case 的 case 是一样的。"></a>可以使用多个 catch 块来处理特殊的错误。在 catch 写的模式和在 switch-case 的 case 是一样的。</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> printerResponse = <span class="keyword">try</span> send(job: <span class="number">1440</span>, toPrinter: <span class="string">"Never Has Toner"</span>)</span><br><span class="line">    <span class="built_in">print</span>(printerResponse)</span><br><span class="line">&#125; <span class="keyword">catch</span> <span class="type">PrinterError</span>.noToner &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"PrinterError.noToner"</span>) <span class="comment">// PrinterError.noToner</span></span><br><span class="line">&#125; <span class="keyword">catch</span> <span class="keyword">let</span> printerError <span class="keyword">as</span> <span class="type">PrinterError</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Printer error: \(printerError)."</span>)</span><br><span class="line">&#125; <span class="keyword">catch</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(error)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="另外一个处理错误的方式是用-try-来将结果转换为可选的。如果一个函数抛了一个错误，这个特定的错误被丢弃了，函数的结果是-nil，否者，结果是这个方法返回的可选值类型的值。"><a href="#另外一个处理错误的方式是用-try-来将结果转换为可选的。如果一个函数抛了一个错误，这个特定的错误被丢弃了，函数的结果是-nil，否者，结果是这个方法返回的可选值类型的值。" class="headerlink" title="另外一个处理错误的方式是用 try? 来将结果转换为可选的。如果一个函数抛了一个错误，这个特定的错误被丢弃了，函数的结果是 nil，否者，结果是这个方法返回的可选值类型的值。"></a>另外一个处理错误的方式是用 try? 来将结果转换为可选的。如果一个函数抛了一个错误，这个特定的错误被丢弃了，函数的结果是 nil，否者，结果是这个方法返回的可选值类型的值。</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> printerSuccess = <span class="keyword">try</span>? send(job: <span class="number">1884</span>, toPrinter: <span class="string">"Mergenthaler"</span>)</span><br><span class="line"><span class="keyword">let</span> printerFailure = <span class="keyword">try</span>? send(job: <span class="number">1885</span>, toPrinter: <span class="string">"Never Has Toner"</span>)</span><br><span class="line"><span class="built_in">print</span>(printerSuccess)</span><br><span class="line"><span class="built_in">print</span>(printerFailure)</span><br></pre></td></tr></table></figure>
+<h2 id="在-defer-关键字后写一个代码块，该代码块在函数返回之前且在函数中的所有其他代码之后执行。-无论函数是否抛出错误，都会执行代码。"><a href="#在-defer-关键字后写一个代码块，该代码块在函数返回之前且在函数中的所有其他代码之后执行。-无论函数是否抛出错误，都会执行代码。" class="headerlink" title="在 defer 关键字后写一个代码块，该代码块在函数返回之前且在函数中的所有其他代码之后执行。 无论函数是否抛出错误，都会执行代码。"></a>在 defer 关键字后写一个代码块，该代码块在函数返回之前且在函数中的所有其他代码之后执行。 无论函数是否抛出错误，都会执行代码。</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fridgeIsOpen = <span class="literal">false</span></span><br><span class="line"><span class="keyword">let</span> fridgeContent = [<span class="string">"milk"</span>, <span class="string">"eggs"</span>, <span class="string">"leftovers"</span>]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">fridgeContains</span><span class="params">(<span class="number">_</span> food: String)</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">    fridgeIsOpen = <span class="literal">true</span></span><br><span class="line">    <span class="keyword">defer</span> &#123;</span><br><span class="line">        fridgeIsOpen = <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> result = fridgeContent.<span class="built_in">contains</span>(food)</span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line">&#125;</span><br><span class="line">fridgeContains(<span class="string">"banana"</span>)</span><br><span class="line"><span class="built_in">print</span>(fridgeIsOpen) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<p><a href="https://github.com/ZhangGuangqun/playground/tree/master/swift/swift-tutorial.playground" target="_blank" rel="noopener">查看源码</a></p>
+<blockquote>
+<p>参考：1. <a href="https://docs.swift.org/swift-book/GuidedTour/GuidedTour.html" target="_blank" rel="noopener">苹果官网 swift 指南</a></p>
+</blockquote>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+
+        
+        原文链接：<a href="https://www.zhangguangqun.com/20190429/swift07/" target="_blank" rel="external">https://www.zhangguangqun.com/20190429/swift07/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://www.zhangguangqun.com">
+            <img src="/img/avatar.jpg" alt="张广群">
+            张广群
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ios/">ios</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/swift/">swift</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.zhangguangqun.com/20190429/swift07/&title=《swift 语言概要 - 7. 错误处理》 — 张广群的博客&pic=https://www.zhangguangqun.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.zhangguangqun.com/20190429/swift07/&title=《swift 语言概要 - 7. 错误处理》 — 张广群的博客&source=读书笔记 | 技术笔记" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.zhangguangqun.com/20190429/swift07/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《swift 语言概要 - 7. 错误处理》 — 张广群的博客&url=https://www.zhangguangqun.com/20190429/swift07/&via=https://www.zhangguangqun.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.zhangguangqun.com/20190429/swift07/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/20190427/swift06/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">swift 语言概要 - 6. 协议和扩展</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "9DbQ9oWFKogqBBRoWDnxkjUq-gzGzoHsz",
+            appKey: "d7SmrCAw0RFK7jIgMKrQzGT8",
+            avatar: "mm",
+            placeholder: "要不要说点什么？",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpeg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.jpeg" data-alipay="/img/alipay.jpeg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>张广群 &copy; 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.zhangguangqun.com/20190429/swift07/&title=《swift 语言概要 - 7. 错误处理》 — 张广群的博客&pic=https://www.zhangguangqun.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.zhangguangqun.com/20190429/swift07/&title=《swift 语言概要 - 7. 错误处理》 — 张广群的博客&source=读书笔记 | 技术笔记" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.zhangguangqun.com/20190429/swift07/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《swift 语言概要 - 7. 错误处理》 — 张广群的博客&url=https://www.zhangguangqun.com/20190429/swift07/&via=https://www.zhangguangqun.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.zhangguangqun.com/20190429/swift07/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJklEQVR42u3aS27DMAwFQN//0inQVYE29iMZB400WgVBrGi8IPjRccTr8b1+fq6u6s7HHQsDA+NjGcnf/9568vveNxevBgMDYwNGNchWo9+zPRPq+dkwMDAwkt9UU8NzJAYGBsZrA27yzXlIzQM0BgYGRlKUJkecpIxvqsUxMDA+kNEbDLzn8+3zDQwMjH/PmIwh72jGNU+FgYGxNOO8QT9P7JIiNhkeROEYAwNjA8Zk0Dh/NUkzrpAgYmBgLMeYNPSrIbK6T/UkGBgY6zHyArU6hkwaanl4vXgWAwNjG0Yv2CU79C6BFQppDAyMDRjV4WJedubP5hfF/gjEGBgYGzB6yV9vDDkfgpYzXAwMjA9nVBtkvWFAQkoGABeBHgMDYwPGZLtq4dobfGJgYOzJaCZhxUsSVUZ5LIGBgbEB474EbhKgCy8OAwNjM0YSdnNe3u6vjhYuAi4GBsZyjGpbrXfE6jgzv3iBgYGxNqN66WHSnssxveIWAwNjVcakfZ8ngsdgRXtiYGBswEg2qpa7+TWO/IVGRSwGBsZyjNHgcJyT9sLx06cwMDAWZTyKK3mqSioMAJ6FbAwMjKUZvTCXDzvnZWqvPYeBgbEeIw+yvRFmr21XvpqGgYGxASMJsvOitBeUo6CPgYGBMU4Nz19KtegttBMxMDC2Z1SL1dc+G81jMTAwFmL0hgHnwfTFPb/zYI2BgbE0o1dA5sethu9qGoqBgbE04wvYJPoI84oyNQAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
